@@ -115,3 +115,4 @@ Admin can navigate to any student module (Attendance, Fees, Performance, Leave, 
 ---
 
 **Demo Login:** any username + any password (select role first)
+# smart-ams-3
