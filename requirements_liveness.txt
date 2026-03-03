@@ -1,0 +1,19 @@
+# Face Recognition with Eye Blinking Liveness Detection
+# Dependencies for SmartAMS System
+
+# Core face recognition and image processing
+face_recognition>=1.3.0
+pillow>=9.0.0
+numpy>=1.21.0
+opencv-python-headless>=4.6.0
+
+# dlib for robust eye aspect ratio detection
+# Note: dlib requires CMake and C++ compiler to build from source
+dlib>=19.24.0
+
+# Optional: For web interface integration
+flask>=2.0.0
+flask-cors>=3.0.10
+
+# Optional: If using Supabase integration
+supabase>=2.0.0

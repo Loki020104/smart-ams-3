@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SmartAMS Debug</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Monaco', 'Courier New', monospace; 
+      background: #0a0e27; 
+      color: #0f0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    #log { 
+      background: #000; 
+      border: 2px solid #0f0; 
+      padding: 15px; 
+      margin: 10px 0;
+      height: 400px;
+      overflow-y: auto;
+      font-size: 12px;
+    }
+    .log-entry { 
+      margin: 5px 0;
+      padding: 3px 5px;
+      border-left: 3px solid #0f0;
+      padding-left: 8px;
+    }
+    .error { color: #ff0000; border-left-color: #ff0000; }
+    .success { color: #00ff00; border-left-color: #00ff00; }
+    .info { color: #00ffff; border-left-color: #00ffff; }
+    button { 
+      background: #0f0;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px 5px 10px 0;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+    button:hover { background: #0cc; }
+    h1 { margin-bottom: 10px; color: #0f0; }
+    .status { margin: 10px 0; padding: 10px; background: #111; border-left: 3px solid #0f0; }
+  </style>
+</head>
+<body>
+  <h1>🔧 SmartAMS Debug Console</h1>
+  <div class="status">
+    <div>Backend: <span id="backendStatus">⏳ Testing...</span></div>
+    <div>Frontend: <span id="frontendStatus">✅ Running</span></div>
+  </div>
+  
+  <button onclick="testBackend()">Test Backend (GET /api/registered-students)</button>
+  <button onclick="clearLog()">Clear Log</button>
+  
+  <div id="log"></div>
+
+  <script>
+    const logEl = document.getElementById('log');
+    
+    function log(msg, type = 'info') {
+      const entry = document.createElement('div');
+      entry.className = 'log-entry ' + type;
+      entry.textContent = new Date().toLocaleTimeString() + ' → ' + msg;
+      logEl.appendChild(entry);
+      logEl.scrollTop = logEl.scrollHeight;
+      console.log(msg);
+    }
+    
+    function clearLog() {
+      logEl.innerHTML = '';
+    }
+    
+    async function testBackend() {
+      log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'info');
+      log('🔄 Starting backend test...', 'info');
+      
+      try {
+        log('📡 Fetching: http://localhost:6000/api/registered-students', 'info');
+        
+        const res = await fetch('http://localhost:6000/api/registered-students', {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+          mode: 'cors',
+          credentials: 'omit'
+        });
+        
+        log(`📨 Response: ${res.status} ${res.statusText}`, res.ok ? 'success' : 'error');
+        log(`Headers: ${res.headers.get('Access-Control-Allow-Origin')}`, 'info');
+        
+        const text = await res.text();
+        log(`Response body: ${text}`, 'success');
+        
+        const data = JSON.parse(text);
+        log(`✅ SUCCESS! Students: ${data.students.length}`, 'success');
+        
+      } catch (e) {
+        log(`❌ ERROR: ${e.name}`, 'error');
+        log(`Message: ${e.message}`, 'error');
+        log(`Stack: ${e.stack}`, 'error');
+      }
+      
+      log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'info');
+    }
+    
+    // Auto-test on load
+    window.addEventListener('load', async () => {
+      log('🌐 Page loaded', 'success');
+      
+      // Test backend connection
+      try {
+        const res = await fetch('http://localhost:6000/api/registered-students', {
+          method: 'GET',
+          mode: 'cors'
+        });
+        if (res.ok) {
+          document.getElementById('backendStatus').innerHTML = '✅ Connected';
+          document.getElementById('backendStatus').style.color = '#0f0';
+          log('✅ Backend is responding', 'success');
+        }
+      } catch (e) {
+        document.getElementById('backendStatus').innerHTML = '❌ Failed: ' + e.message;
+        document.getElementById('backendStatus').style.color = '#ff0000';
+        log('❌ Backend connection failed: ' + e.message, 'error');
+      }
+    });
+  </script>
+</body>
+</html>

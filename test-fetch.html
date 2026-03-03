@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fetch Test</title>
+  <style>
+    body { font-family: monospace; padding: 20px; background: #1a1a1a; color: #0f0; }
+    .log { background: #000; padding: 10px; margin: 10px 0; border-left: 3px solid #0f0; }
+    button { padding: 10px 20px; margin: 10px 0; background: #0f0; color: #000; border: none; cursor: pointer; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Backend Fetch Test</h1>
+  <button onclick="testFetch()">Test Fetch</button>
+  <div id="log"></div>
+
+  <script>
+    function log(msg) {
+      const el = document.getElementById('log');
+      el.innerHTML += '<div class="log">' + new Date().toLocaleTimeString() + ' → ' + msg + '</div>';
+      console.log(msg);
+    }
+
+    async function testFetch() {
+      try {
+        log('🔄 Starting fetch...');
+        log('URL: http://localhost:6000/api/registered-students');
+        
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 5000);
+        
+        const res = await fetch('http://localhost:6000/api/registered-students', {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+          mode: 'cors',
+          credentials: 'omit',
+          signal: controller.signal
+        });
+        clearTimeout(timeout);
+        
+        log(`✅ Response received: ${res.status} ${res.statusText}`);
+        log(`Content-Type: ${res.headers.get('Content-Type')}`);
+        log(`CORS Origin: ${res.headers.get('Access-Control-Allow-Origin')}`);
+        
+        const data = await res.json();
+        log(`✅ JSON parsed: ${JSON.stringify(data)}`);
+        
+      } catch (e) {
+        log(`❌ Error: ${e.name} - ${e.message}`);
+      }
+    }
+  </script>
+</body>
+</html>

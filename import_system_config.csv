@@ -1,0 +1,7 @@
+key,value
+face_recognition_enabled,true
+tolerance,0.5
+college_lat,13.0827
+college_lng,80.2707
+college_radius_km,0.5
+qr_expiry_minutes,5

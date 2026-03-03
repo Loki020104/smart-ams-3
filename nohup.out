@@ -1,0 +1,6 @@
+[FACE] face_recognition module loaded successfully
+SmartAMS Backend — http://localhost:6001
+ * Serving Flask app 'backend'
+ * Debug mode: on
+Address already in use
+Port 6001 is in use by another program. Either identify and stop that program, or start the server with a different port.

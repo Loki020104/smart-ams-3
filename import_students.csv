@@ -1,0 +1,9 @@
+username,password_hash,role,full_name,email,roll_no,department,section,academic_year
+student_001,hash123,student,Raj Kumar,raj001@college.edu,20261CSE001,CSE,A,2025-26
+student_002,hash123,student,Priya Singh,priya002@college.edu,20261CSE002,CSE,A,2025-26
+student_003,hash123,student,Arjun Patel,arjun003@college.edu,20261CSE003,CSE,B,2025-26
+student_004,hash123,student,Neha Verma,neha004@college.edu,20261ECE001,ECE,A,2025-26
+student_005,hash123,student,Aditya Singh,aditya005@college.edu,20261ECE002,ECE,B,2025-26
+student_006,hash123,student,Isha Sharma,isha006@college.edu,20261CSE004,CSE,B,2025-26
+student_007,hash123,student,Rohan Desai,rohan007@college.edu,20261ECE003,ECE,B,2025-26
+student_008,hash123,student,Divya Nair,divya008@college.edu,20261CSE005,CSE,A,2025-26

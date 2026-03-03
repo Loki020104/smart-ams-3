@@ -1,0 +1,9 @@
+code,name,credits,department,semester,academic_year,faculty_username
+CS101,Data Structures and Algorithms,4,CSE,3,2025-26,faculty_khan
+CS102,Database Management Systems,4,CSE,3,2025-26,faculty_sharma
+CS103,Design and Analysis of Algorithms,3,CSE,4,2025-26,faculty_gupta
+CS201,Operating Systems,4,CSE,5,2025-26,faculty_patel
+CS202,Computer Networks,4,CSE,5,2025-26,faculty_verma
+EC101,Digital Electronics,4,ECE,3,2025-26,faculty_nair
+EC102,Signals and Systems,4,ECE,4,2025-26,faculty_roy
+EC201,Microprocessors,3,ECE,5,2025-26,faculty_desai

@@ -1,0 +1,13 @@
+code,name,credits,department,semester,academic_year,faculty_id
+CS101,Data Structures and Algorithms,4,CSE,3,2025-26,<FACULTY_ID_1>
+CS102,Database Management Systems,4,CSE,3,2025-26,<FACULTY_ID_2>
+CS103,Design and Analysis of Algorithms,3,CSE,4,2025-26,<FACULTY_ID_3>
+CS201,Operating Systems,4,CSE,5,2025-26,<FACULTY_ID_4>
+CS202,Computer Networks,4,CSE,5,2025-26,<FACULTY_ID_5>
+EC101,Digital Electronics,4,ECE,3,2025-26,<FACULTY_ID_6>
+EC102,Signals and Systems,4,ECE,4,2025-26,<FACULTY_ID_7>
+EC201,Microprocessors,3,ECE,5,2025-26,<FACULTY_ID_8>
+CS104,Web Technologies,3,CSE,4,2025-26,<FACULTY_ID_1>
+CS203,Machine Learning,4,CSE,6,2025-26,<FACULTY_ID_3>
+CS301,Database Design,3,CSE,6,2025-26,<FACULTY_ID_2>
+EC301,VLSI Design,4,ECE,6,2025-26,<FACULTY_ID_6>
