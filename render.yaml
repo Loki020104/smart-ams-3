@@ -1,0 +1,22 @@
+# render.yaml defines two services: backend (Python) and frontend (Node)
+# Visit https://render.com/docs/deploy-via-git for more details
+
+services:
+  - type: web
+    name: smart-ams-backend
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python backend.py
+    instanceType: "starter"
+    envVars:
+      - key: FRONTEND_URL
+        value: "https://<your-frontend-service>.onrender.com"
+
+  - type: web
+    name: smart-ams-frontend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm run dev
+    instanceType: "starter"

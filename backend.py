@@ -2770,8 +2770,10 @@ def get_grades():
 
 
 if __name__=="__main__":
-    print("SmartAMS Backend — http://localhost:6001")
+    # Render sets PORT env var; default to 6001 for local dev
+    port = int(os.getenv("PORT", 6001))
+    print(f"SmartAMS Backend — http://localhost:{port}")
     print("QR Security System — ENABLED")
     print("Phase 1 Extensions — Lessons, Notifications, Assignments ENABLED")
-    app.run(debug=True,host="0.0.0.0",port=6001)
+    app.run(debug=True, host="0.0.0.0", port=port)
 
