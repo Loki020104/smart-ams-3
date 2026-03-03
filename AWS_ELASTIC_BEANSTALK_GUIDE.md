@@ -4,9 +4,10 @@
 
 1. **AWS Account** with billing enabled
 2. **AWS CLI** installed: https://aws.amazon.com/cli/
-3. **EB CLI** installed:
+3. **EB CLI** installed (activate venv first, then):
    ```bash
-   pip install awsebcli --upgrade --user
+   source /Users/loki/Downloads/smart-ams\ 3/.venv/bin/activate
+   pip install awsebcli --upgrade
    ```
 4. **Git** configured
 5. **Supabase** project already created (no RDS needed)
