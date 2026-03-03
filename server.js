@@ -18,12 +18,21 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname)));
 
 // Serve index.html for all routes (SPA)
+import fs from 'fs';
+
+function renderIndex() {
+  let html = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
+  const apiBase = process.env.API_BASE || '';
+  html = html.replace(/%%API_BASE%%/g, apiBase);
+  return html;
+}
+
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.send(renderIndex());
 });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.send(renderIndex());
 });
 
 app.listen(PORT, () => {

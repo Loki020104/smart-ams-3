@@ -10,7 +10,7 @@
 const QRModule = {
   // Configuration
   config: {
-    apiBase: "http://localhost:6001",
+    apiBase: window.API_BASE || "http://localhost:6001",
     offlineEnabled: true,
     offlineStorageKey: "ams_qr_offline_queue",
     deviceFingerprintKey: "ams_device_fingerprint"

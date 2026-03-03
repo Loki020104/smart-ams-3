@@ -1,0 +1,14 @@
+# ignore Python backend and other non-frontend artifacts
+*.py
+backend.py
+qr_security.py
+requirements.txt
+.env
+.venv/
+venv/
+__pycache__/
+node_modules/
+dlib/
+build/
+*.md
+*.sql
