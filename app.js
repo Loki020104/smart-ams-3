@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
 // If fetch calls use 'http://localhost:6001', rewrite them to the current host
 ;(function(){
   try {
-    window.API_BASE = window.API_BASE || `http://${location.hostname}:6001`;
+    window.API_BASE = 'https://smart-ams-3.onrender.com';
     const __origFetch = window.fetch.bind(window);
     window.fetch = function(input, init){
       try {

@@ -92,7 +92,11 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "*"}}, supports_credentials=True)
+CORS(app, resources={r"/*": {"origins": [
+    "https://smart-ams-3.vercel.app",
+    "http://localhost:3000",
+    "http://localhost:6001"
+]}}, supports_credentials=True)
 
 ENC_PATH = "encodings.pkl"
 ATT_CSV  = "attendance.csv"
@@ -2776,4 +2780,3 @@ if __name__=="__main__":
     print("QR Security System — ENABLED")
     print("Phase 1 Extensions — Lessons, Notifications, Assignments ENABLED")
     app.run(debug=True, host="0.0.0.0", port=port)
-
