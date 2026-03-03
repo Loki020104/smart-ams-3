@@ -1,9 +1,16 @@
 {
   "version": 2,
   "builds": [
-    { "src": "server.js", "use": "@vercel/node" }
+    { "src": "server.js", "use": "@vercel/node" },
+    { "src": "app.js", "use": "@vercel/static" },
+    { "src": "qr_client.js", "use": "@vercel/static" },
+    { "src": "index.html", "use": "@vercel/static" }
   ],
   "routes": [
+    { "src": "/app.js", "dest": "/app.js" },
+    { "src": "/qr_client.js", "dest": "/qr_client.js" },
+    { "src": "/index.html", "dest": "/index.html" },
+    { "src": "/", "dest": "/index.html" },
     { "src": "/(.*)", "dest": "/server.js" }
   ]
 }
