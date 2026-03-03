@@ -8,6 +8,7 @@ dlib-bin>=19.24.0
 # in favor of direct dlib usage. If you still want the
 # convenience wrapper you can install it alongside dlib:
 # face-recognition==1.3.0
+face-recognition==1.3.0
 
 opencv-python-headless==4.8.1.78
 numpy>=1.26.0
