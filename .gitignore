@@ -1,0 +1,13 @@
+*.dat
+*.pkl
+*.bz2
+.venv/
+.venv311/
+venv/
+node_modules/
+__pycache__/
+*.log
+.env
+nohup.out
+encodings.pkl
+attendance.csv
