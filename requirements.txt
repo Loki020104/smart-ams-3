@@ -1,7 +1,17 @@
 flask==3.0.0
 flask-cors==4.0.0
-# face-recognition==1.3.0  # disabled for Render deployment (builds dlib from source, uses too much memory)
-# If you need face recognition, deploy backend with more resources or via Docker
+# dlib provides face detection/landmarks and is required for
+# the backend's face recognition / liveness code.  It must be
+# compiled from source on most platforms, which can be memory
+# intensive; if you deploy on Render's free tier the build may
+# still fail.  In that case either use a larger instance or
+# build in a Docker container and push a wheel.
+dlib>=19.24.0
+
+# face-recognition was previously used but has been removed
+# in favor of direct dlib usage.  If you still want the
+# convenience wrapper you can install it alongside dlib:
+# face-recognition==1.3.0
 
 opencv-python==4.8.1.78
 numpy>=1.26.0
