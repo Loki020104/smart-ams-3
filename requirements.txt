@@ -8,7 +8,9 @@ dlib-bin>=19.24.0
 # in favor of direct dlib usage. If you still want the
 # convenience wrapper you can install it alongside dlib:
 # face-recognition==1.3.0
-face-recognition==1.3.0
+# face-recognition was temporarily added but causes Vercel
+# builds to run out of memory (dlib compiles from source).
+# Keep this commented to avoid OOM during deploy.
 
 opencv-python-headless==4.8.1.78
 numpy>=1.26.0
